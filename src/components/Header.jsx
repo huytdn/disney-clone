@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import icons from "../assets/icons/icon";
 import HeaderItem from "./HeaderItem";
@@ -15,32 +16,13 @@ const {
 function Header() {
   const [toggle, setToggle] = useState(false);
   const menu = [
-    {
-      name: "HOME",
-      icon: HiHome,
-    },
-    {
-      name: "SEARCH",
-      icon: HiMagnifyingGlass,
-    },
-    {
-      name: "WATCH LIST",
-      icon: HiPlus,
-    },
-    {
-      name: "ORIGINALS",
-      icon: HiStar,
-    },
-    {
-      name: "MOVIES",
-      icon: HiPlayCircle,
-    },
-    {
-      name: "SERIES",
-      icon: HiTv,
-    },
+    { name: "HOME", icon: HiHome, path: "/" },
+    { name: "SEARCH", icon: HiMagnifyingGlass, path: "/search" },
+    { name: "WATCH LIST", icon: HiPlus, path: "/watchlist" },
+    { name: "ORIGINALS", icon: HiStar, path: "/originals" },
+    { name: "MOVIES", icon: HiPlayCircle, path: "/movies" },
+    { name: "SERIES", icon: HiTv, path: "/series" },
   ];
-
   return (
     <div className="flex items-center gap-8 justify-between p-5">
       <div className="flex items-center gap-8">
@@ -51,13 +33,25 @@ function Header() {
         />
         <div className="hidden lg:flex gap-8">
           {menu.map((item, index) => (
-            <HeaderItem key={index} name={item.name} Icon={item.icon} />
+            <HeaderItem
+              key={index}
+              name={item.name}
+              Icon={item.icon}
+              to={item.path}
+            />
           ))}
         </div>
         <div className="flex lg:hidden gap-5">
           {menu.map(
             (item, index) =>
-              index < 3 && <HeaderItem key={index} name={""} Icon={item.icon} />
+              index < 3 && (
+                <HeaderItem
+                  key={index}
+                  name={""}
+                  Icon={item.icon}
+                  to={item.path}
+                />
+              )
           )}
         </div>
         <div
@@ -74,6 +68,7 @@ function Header() {
                   key={index}
                   name={item.name}
                   Icon={item.icon}
+                  to={item.path}
                   className={"mb-3"}
                 />
               ))}
@@ -82,12 +77,18 @@ function Header() {
         </div>
       </div>
       <div className="flex gap-8 items-center">
-        <div className="font-semibold cursor-pointer hover:underline underline-offset-8">
+        <Link
+          to="/signin"
+          className="font-semibold cursor-pointer hover:underline underline-offset-8"
+        >
           Sign In
-        </div>
-        <div className="font-semibold cursor-pointer hover:underline underline-offset-8">
+        </Link>
+        <Link
+          to="/signup"
+          className="font-semibold cursor-pointer hover:underline underline-offset-8"
+        >
           Sign Up
-        </div>
+        </Link>
       </div>
     </div>
   );
