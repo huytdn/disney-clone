@@ -6,8 +6,8 @@ import WatchList from "../pages/WatchList";
 import Originals from "../pages/Originals";
 import Movies from "../pages/Movies";
 import Series from "../pages/Series";
-import SignIn from "../pages/SignIn";
-import SignUp from "../pages/SignUp";
+import SignIn from "../pages/Login";
+import SignUp from "../pages/Register";
 
 function AppRoutes() {
   const location = useLocation();

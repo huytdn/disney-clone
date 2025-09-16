@@ -81,13 +81,13 @@ function Header() {
           to="/signin"
           className="font-semibold cursor-pointer hover:underline underline-offset-8"
         >
-          Sign In
+          Login
         </Link>
         <Link
           to="/signup"
           className="font-semibold cursor-pointer hover:underline underline-offset-8"
         >
-          Sign Up
+          Register
         </Link>
       </div>
     </div>

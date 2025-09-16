@@ -5,8 +5,8 @@ import {
   HiPlayCircle,
   HiTv,
 } from "react-icons/hi2";
-
 import { HiPlus, HiDotsVertical } from "react-icons/hi";
+import { IoChevronBackCircleOutline } from "react-icons/io5";
 
 const icons = {
   HiHome,
@@ -16,6 +16,7 @@ const icons = {
   HiPlayCircle,
   HiTv,
   HiDotsVertical,
+  IoChevronBackCircleOutline,
 };
 
 export default icons;
