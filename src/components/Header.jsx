@@ -12,9 +12,11 @@ const {
   HiPlayCircle,
   HiTv,
   HiDotsVertical,
+  IoMdMenu,
 } = icons;
 function Header() {
-  const [toggle, setToggle] = useState(false);
+  const [toggle1, setToggle1] = useState(false);
+  const [toggle2, setToggle2] = useState(false);
   const menu = [
     { name: "HOME", icon: HiHome, path: "/" },
     { name: "SEARCH", icon: HiMagnifyingGlass, path: "/search" },
@@ -57,12 +59,12 @@ function Header() {
         <div
           className="lg:hidden relative"
           onClick={() => {
-            setToggle(!toggle);
+            setToggle1(!toggle1);
           }}
         >
           <HeaderItem name={""} Icon={HiDotsVertical} />
-          {toggle && (
-            <div className="absolute mt-3 bg-[#121212] border border-gray-700 p-4 rounded-lg">
+          {toggle1 && (
+            <div className="absolute right-4 mt-3 bg-[#121212] border border-gray-700 p-4 rounded-lg z-10">
               {menu.slice(3).map((item, index) => (
                 <HeaderItem
                   key={index}
@@ -79,16 +81,40 @@ function Header() {
       <div className="flex gap-8 items-center">
         <Link
           to="/signin"
-          className="font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8"
+          className="font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8 md:block hidden"
         >
           Login
         </Link>
         <Link
           to="/signup"
-          className="font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8"
+          className="font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8 md:block hidden"
         >
           Register
         </Link>
+        <div
+          className="md:hidden cursor-pointer"
+          onClick={() => {
+            setToggle2(!toggle2);
+          }}
+        >
+          <IoMdMenu />
+          {toggle2 && (
+            <div className="absolute right-5 mt-2 bg-[#121212] border border-gray-700 p-4 rounded-lg shadow-lg z-20">
+              <Link
+                to="/signin"
+                className="block font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8 mb-2"
+              >
+                Login
+              </Link>
+              <Link
+                to="/signup"
+                className="block font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8"
+              >
+                Register
+              </Link>
+            </div>
+          )}
+        </div>
       </div>
     </div>
   );

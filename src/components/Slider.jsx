@@ -59,8 +59,9 @@ function Slider() {
     <div className="relative">
       <div
         onClick={handlePrev}
-        className="hidden md:flex items-center justify-center absolute top-1/2 left-14 transform -translate-y-1/2 z-10 
-             w-12 h-12 rounded-full bg-black/30 cursor-pointer"
+        className={`hidden md:flex items-center justify-center absolute top-1/2 left-14 transform -translate-y-1/2 z-10 
+              w-12 h-12 rounded-full bg-black/30 cursor-pointer
+              ${currentIndex === 0 ? "opacity-40 pointer-events-none" : ""}`}
       >
         <IoChevronBackSharp className="text-white text-[30px]" />
       </div>
