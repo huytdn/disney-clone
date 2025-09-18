@@ -79,13 +79,13 @@ function Header() {
       <div className="flex gap-8 items-center">
         <Link
           to="/signin"
-          className="font-semibold cursor-pointer hover:underline underline-offset-8"
+          className="font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8"
         >
           Login
         </Link>
         <Link
           to="/signup"
-          className="font-semibold cursor-pointer hover:underline underline-offset-8"
+          className="font-semibold text-[15px] cursor-pointer hover:underline underline-offset-8"
         >
           Register
         </Link>
