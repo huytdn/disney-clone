@@ -40,7 +40,7 @@ function ProductionHouse() {
     },
   ];
   return (
-    <div className="flex gap-3 md:gap-8 p-2 md:px-20 px-5">
+    <div className="flex gap-3 md:gap-8 p-2 md:px-20 px-10">
       {productionHouseList.map((item) => {
         return (
           <div

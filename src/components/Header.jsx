@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../assets/images/logo.png";
 import icons from "../assets/icons/icon";
 import HeaderItem from "./HeaderItem";
@@ -10,11 +10,11 @@ const {
   HiPlus,
   HiStar,
   HiPlayCircle,
-  HiTv,
   HiDotsVertical,
   IoMdMenu,
 } = icons;
 function Header() {
+  const navigate = useNavigate();
   const [toggle1, setToggle1] = useState(false);
   const [toggle2, setToggle2] = useState(false);
   const menu = [
@@ -23,7 +23,6 @@ function Header() {
     { name: "WATCH LIST", icon: HiPlus, path: "/watchlist" },
     { name: "ORIGINALS", icon: HiStar, path: "/originals" },
     { name: "MOVIES", icon: HiPlayCircle, path: "/movies" },
-    { name: "SERIES", icon: HiTv, path: "/series" },
   ];
   return (
     <div className="flex items-center gap-8 justify-between p-5">
@@ -32,6 +31,7 @@ function Header() {
           src={logo}
           alt="Logo"
           className="w-[80px] lg:w-[115px] object-cover"
+          onClick={() => navigate("/")}
         />
         <div className="hidden lg:flex gap-8">
           {menu.map((item, index) => (
@@ -64,14 +64,14 @@ function Header() {
         >
           <HeaderItem name={""} Icon={HiDotsVertical} />
           {toggle1 && (
-            <div className="absolute right-4 mt-3 bg-[#121212] border border-gray-700 p-4 rounded-lg z-10">
+            <div className="absolute right-4 mt-3 bg-[#121212] border border-gray-700 p-3 rounded-lg z-10">
               {menu.slice(3).map((item, index) => (
                 <HeaderItem
                   key={index}
                   name={item.name}
                   Icon={item.icon}
                   to={item.path}
-                  className={"mb-3"}
+                  className={"p-1"}
                 />
               ))}
             </div>
