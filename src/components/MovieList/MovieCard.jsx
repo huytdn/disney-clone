@@ -12,6 +12,9 @@ function MovieCard({ movie }) {
                      transition-all duration-200 ease-in"
         />
       </div>
+      <p className=" text-white mt-2 truncate text-center text-xs md:text-[15px] lg:text-lg">
+        {movie.title}
+      </p>
     </div>
   );
 }

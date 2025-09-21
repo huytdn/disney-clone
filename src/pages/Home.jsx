@@ -1,17 +1,17 @@
 import React from "react";
 import Slider from "../components/Slider";
 import ProductionHouse from "../components/ProductionHouse";
-import GenreMovieList from "../components/MovieList/GenreMovieList";
 import PersonListTitle from "../components/PersonList/PersonListTitle";
 import Advertisement from "../components/Advertisement";
 import Footer from "../components/Footer";
+import GenreMovieListHome from "../components/MovieList/GenreMovieListHome";
 
 function Home() {
   return (
     <>
       <Slider />
       <ProductionHouse />
-      <GenreMovieList />
+      <GenreMovieListHome number={3} />
       <PersonListTitle title={"Acting"} />
       <Advertisement />
       <Footer />

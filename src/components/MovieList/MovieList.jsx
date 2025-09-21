@@ -71,7 +71,7 @@ function MovieList({ genreId, type, itemsPerPage }) {
         ref={containerRef}
         className={`flex overflow-x-auto ${
           type === "poster" ? "gap-5" : "gap-7"
-        } px-3 no-scrollbar pt-5 pb-5 scroll-smooth`}
+        } px-3 no-scrollbar pt-3 pb-3 scroll-smooth`}
       >
         {movieList.map((item, index) =>
           type === "poster" ? (

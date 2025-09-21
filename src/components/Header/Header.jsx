@@ -30,7 +30,7 @@ function Header() {
         <img
           src={logo}
           alt="Logo"
-          className="w-[80px] lg:w-[115px] object-cover"
+          className="w-[80px] lg:w-[115px] object-cover cursor-pointer"
           onClick={() => navigate("/")}
         />
         <div className="hidden lg:flex gap-8">
