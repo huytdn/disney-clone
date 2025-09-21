@@ -75,7 +75,7 @@ function Slider() {
             key={index}
             src={`${import.meta.env.VITE_IMG_URL}${item.backdrop_path}`}
             alt={item.title || item.name}
-            className="min-w-full h-[210px] lg:h-[400px] object-cover object-center mr-10 rounded-md hover:border-[4px] border-gray-400 transition-all duration-200 ease-in-out"
+            className="min-w-full h-[110px] md:h-[320px] lg:h-[420px] object-top  mr-10 rounded-md hover:border-[4px] border-gray-400 transition-all duration-200 ease-in-out"
             onLoad={() => {}}
           />
         ))}
