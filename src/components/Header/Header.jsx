@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../assets/images/logo.png";
-import icons from "../assets/icons/icon";
+import logo from "../../assets/images/logo.png";
+import icons from "../../assets/icons/icon";
 import HeaderItem from "./HeaderItem";
 
 const {

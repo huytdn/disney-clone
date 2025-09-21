@@ -1,11 +1,10 @@
 import { Routes, Route, useLocation } from "react-router-dom";
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
 import Home from "../pages/Home";
 import Search from "../pages/Search";
 import WatchList from "../pages/WatchList";
 import Originals from "../pages/Originals";
 import Movies from "../pages/Movies";
-import Series from "../pages/Series";
 import SignIn from "../pages/Login";
 import SignUp from "../pages/Register";
 
@@ -24,7 +23,6 @@ function AppRoutes() {
         <Route path="/watchlist" element={<WatchList />} />
         <Route path="/originals" element={<Originals />} />
         <Route path="/movies" element={<Movies />} />
-        <Route path="/series" element={<Series />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
       </Routes>

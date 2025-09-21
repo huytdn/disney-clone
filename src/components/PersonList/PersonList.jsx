@@ -1,25 +1,24 @@
-import React, { useEffect, useState, useRef } from "react";
-import GlobalApi from "../services/GlobalApi";
-import MovieCard from "./MovieCard";
-import HrMovieCard from "./HrMovieCard";
+import React from "react";
+import PersonCard from "./PersonCard";
+import GlobalApi from "../../services/GlobalApi";
+import { useState, useEffect, useRef } from "react";
 import { IoChevronBackSharp, IoChevronForwardSharp } from "react-icons/io5";
 
-function MovieList({ genreId, type }) {
-  const [movieList, setMovieList] = useState([]);
+function PersonList({ itemsPerPage }) {
+  const [personList, setPersonList] = useState([]);
   const [currentIndex, setCurrentIndex] = useState(0);
   const containerRef = useRef(null);
 
   useEffect(() => {
-    getMovieByGenreId();
+    getPersonList();
   }, []);
 
-  const getMovieByGenreId = () => {
-    GlobalApi.getMovieByGenreId(genreId).then((res) => {
-      setMovieList(res.data.results);
+  const getPersonList = () => {
+    GlobalApi.getTrendingPerson.then((res) => {
+      console.log(res);
+      setPersonList(res.data.results);
     });
   };
-
-  const itemsPerPage = 5;
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -29,11 +28,11 @@ function MovieList({ genreId, type }) {
   };
 
   const handleNext = () => {
-    if (currentIndex < movieList.length - itemsPerPage) {
+    if (currentIndex < personList.length - itemsPerPage) {
       const newIndex = currentIndex + itemsPerPage;
       setCurrentIndex(
-        newIndex > movieList.length - itemsPerPage
-          ? movieList.length - itemsPerPage
+        newIndex > personList.length - itemsPerPage
+          ? personList.length - itemsPerPage
           : newIndex
       );
     }
@@ -56,42 +55,39 @@ function MovieList({ genreId, type }) {
       }
     }
   }, [currentIndex]);
-
   return (
     <div className="relative">
+      {/* Nút prev */}
       <div
         onClick={handlePrev}
         className={`hidden md:flex items-center justify-center absolute top-1/2 left-[-19px] transform -translate-y-1/2 z-10 
-                w-12 h-12 rounded-full bg-black/30 cursor-pointer
-                ${currentIndex === 0 ? "opacity-40 pointer-events-none" : ""}`}
+                  w-12 h-12 rounded-full bg-black/30 cursor-pointer
+                  ${
+                    currentIndex === 0 ? "opacity-40 pointer-events-none" : ""
+                  }`}
       >
-        <IoChevronBackSharp className="text-white text-[30px] " />
+        <IoChevronBackSharp className="text-white text-[30px]" />
       </div>
-
+      {/* List */}
       <div
         ref={containerRef}
-        className={`flex overflow-x-auto ${
-          type === "poster" ? "gap-5" : "gap-7"
-        } px-3 no-scrollbar pt-5 pb-5 scroll-smooth`}
+        className="flex overflow-x-auto px-6 no-scrollbar pt-5 pb-5 scroll-smooth gap-2 md:gap-8"
       >
-        {movieList.map((item, index) =>
-          type === "poster" ? (
-            <HrMovieCard key={index} movie={item} />
-          ) : (
-            <MovieCard key={index} movie={item} />
-          )
-        )}
+        {personList.map((item, index) => (
+          <PersonCard item={item} key={index} />
+        ))}
       </div>
 
+      {/* Nút next */}
       <div
         onClick={handleNext}
         className={`hidden md:flex items-center justify-center absolute top-1/2 right-[-22px] transform -translate-y-1/2 z-10 
-                w-12 h-12 rounded-full bg-black/30 cursor-pointer
-                ${
-                  currentIndex >= movieList.length - itemsPerPage
-                    ? "opacity-40 pointer-events-none"
-                    : ""
-                }`}
+                  w-12 h-12 rounded-full bg-black/30 cursor-pointer
+                  ${
+                    currentIndex >= personList.length - itemsPerPage
+                      ? "opacity-40 pointer-events-none"
+                      : ""
+                  }`}
       >
         <IoChevronForwardSharp className="text-white text-[30px]" />
       </div>
@@ -99,4 +95,4 @@ function MovieList({ genreId, type }) {
   );
 }
 
-export default MovieList;
+export default PersonList;
