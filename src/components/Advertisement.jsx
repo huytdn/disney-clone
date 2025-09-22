@@ -26,7 +26,7 @@ function Advertisement() {
         <Button
           title={"SHOP NOW"}
           className={
-            "bg-red-900 rounded-3xl hover:bg-red-800 transition w-40 ml-20 mt-5"
+            "bg-blue-900 rounded-3xl hover:bg-blue-800 transition w-40 ml-20 mt-5"
           }
         />
       </div>

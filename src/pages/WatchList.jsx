@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-const [account, setAccount] = useState(null);
-
-useEffect(() => {
-  let session = sessionStorage.getItem("account");
-  if (session) {
-    setAccount(JSON.parse(session));
-  }
-}, []);
 
 function WatchList() {
+  const [account, setAccount] = useState(null);
+
+  useEffect(() => {
+    let session = sessionStorage.getItem("account");
+    if (session) {
+      setAccount(JSON.parse(session));
+    }
+  }, []);
   return <div>WatchList</div>;
 }
 

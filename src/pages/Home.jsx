@@ -8,14 +8,21 @@ import GenreMovieListHome from "../components/MovieList/GenreMovieListHome";
 
 function Home() {
   return (
-    <>
-      <Slider />
-      <ProductionHouse />
-      <GenreMovieListHome number={3} />
-      <PersonListTitle title={"Acting"} />
-      <Advertisement />
-      <Footer />
-    </>
+    <div
+      style={{
+        background:
+          "linear-gradient(135deg, #131520 0%, #1f2230 50%, #2a2e40 100%)",
+      }}
+    >
+      <div className="pt-20">
+        <Slider />
+        <ProductionHouse />
+        <GenreMovieListHome number={3} />
+        <PersonListTitle title={"Acting"} />
+        <Advertisement />
+        <Footer />
+      </div>
+    </div>
   );
 }
 

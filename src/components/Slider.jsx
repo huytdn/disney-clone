@@ -10,11 +10,9 @@ function Slider() {
   const sliderRef = useRef(null);
 
   useEffect(() => {
-    GlobalApi.getTrendingVideos
-      .then((res) => {
-        setMovieList(res.data.results || []);
-      })
-      .catch((err) => console.error(err));
+    GlobalApi.getTrendingVideos()
+      .then((res) => setMovieList(res.data.results || []))
+      .catch(console.error);
   }, []);
 
   const scrollToIndex = (index) => {

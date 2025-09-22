@@ -10,15 +10,10 @@ function PersonList({ itemsPerPage }) {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    getPersonList();
+    GlobalApi.getTrendingPerson()
+      .then((res) => setPersonList(res.data.results || []))
+      .catch(console.error);
   }, []);
-
-  const getPersonList = () => {
-    GlobalApi.getTrendingPerson.then((res) => {
-      console.log(res);
-      setPersonList(res.data.results);
-    });
-  };
 
   const handlePrev = () => {
     if (currentIndex > 0) {
@@ -57,10 +52,9 @@ function PersonList({ itemsPerPage }) {
   }, [currentIndex]);
   return (
     <div className="relative">
-      {/* Nút prev */}
       <div
         onClick={handlePrev}
-        className={`hidden md:flex items-center justify-center absolute top-1/2 left-[-19px] transform -translate-y-1/2 z-10 
+        className={`hidden md:flex items-center justify-center absolute top-38 left-[-19px] transform -translate-y-1/2 z-0 
                   w-12 h-12 rounded-full bg-black/30 cursor-pointer
                   ${
                     currentIndex === 0 ? "opacity-40 pointer-events-none" : ""
@@ -68,7 +62,7 @@ function PersonList({ itemsPerPage }) {
       >
         <IoChevronBackSharp className="text-white text-[30px]" />
       </div>
-      {/* List */}
+
       <div
         ref={containerRef}
         className="flex overflow-x-auto px-6 no-scrollbar pt-5 pb-5 scroll-smooth gap-2 md:gap-8"
@@ -78,10 +72,9 @@ function PersonList({ itemsPerPage }) {
         ))}
       </div>
 
-      {/* Nút next */}
       <div
         onClick={handleNext}
-        className={`hidden md:flex items-center justify-center absolute top-1/2 right-[-22px] transform -translate-y-1/2 z-10 
+        className={`hidden md:flex items-center justify-center absolute top-38 right-[-22px] transform -translate-y-1/2 z-0 
                   w-12 h-12 rounded-full bg-black/30 cursor-pointer
                   ${
                     currentIndex >= personList.length - itemsPerPage

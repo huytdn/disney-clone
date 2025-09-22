@@ -60,7 +60,7 @@ function MovieList({ genreId, type, itemsPerPage }) {
     <div className="relative">
       <div
         onClick={handlePrev}
-        className={`hidden md:flex items-center justify-center absolute top-1/2 left-[-19px] transform -translate-y-1/2 z-10 
+        className={`hidden md:flex items-center justify-center absolute top-1/2 left-[-19px] transform -translate-y-1/2 z-0
                 w-12 h-12 rounded-full bg-black/30 cursor-pointer
                 ${currentIndex === 0 ? "opacity-40 pointer-events-none" : ""}`}
       >
@@ -84,7 +84,7 @@ function MovieList({ genreId, type, itemsPerPage }) {
 
       <div
         onClick={handleNext}
-        className={`hidden md:flex items-center justify-center absolute top-1/2 right-[-22px] transform -translate-y-1/2 z-10 
+        className={`hidden md:flex items-center justify-center absolute top-1/2 right-[-22px] transform -translate-y-1/2 z-0 
                 w-12 h-12 rounded-full bg-black/30 cursor-pointer
                 ${
                   currentIndex >= movieList.length - itemsPerPage
