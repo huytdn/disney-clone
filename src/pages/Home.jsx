@@ -18,7 +18,7 @@ function Home() {
         <Slider />
         <ProductionHouse />
         <GenreMovieListHome number={3} />
-        <PersonListTitle title={"Acting"} />
+        <PersonListTitle title={"Hot Acting"} />
         <Advertisement />
         <Footer />
       </div>

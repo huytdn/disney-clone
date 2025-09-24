@@ -25,7 +25,7 @@ function Header() {
     { name: "MOVIES", icon: HiPlayCircle, path: "/movies" },
   ];
   return (
-    <div className="flex items-center gap-8 justify-between p-5 fixed w-full z-10 bg-[#131520]">
+    <div className="flex items-center gap-8 justify-between p-5 fixed w-full z-50 bg-[#131520]">
       <div className="flex items-center gap-8">
         <img
           src={logo}

@@ -7,7 +7,7 @@ function PersonListTitle({ title }) {
       <h2 className="text-[20px]  md:text-[30px] text-white font-bold">
         {title}
       </h2>
-      <PersonList itemsPerPage={5} />
+      <PersonList itemsPerPage={3} />
     </div>
   );
 }

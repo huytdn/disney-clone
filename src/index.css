@@ -32,3 +32,10 @@ body {
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 }
+
+.clamp-5 {
+  display: -webkit-box;
+  -webkit-line-clamp: 5; /* số dòng muốn hiển thị */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

@@ -18,9 +18,22 @@ const searchMovie = (query) =>
     `${movieBaseUrl}/search/movie?api_key=${api_key}&query=${query}&include_adult=false&language=vi-US&page=1`
   );
 
+const getMovieDetails = (movieId) => {
+  return axios.get(
+    `${movieBaseUrl}/movie/${movieId}?api_key=${api_key}&language=vi-US`
+  );
+};
+
+const getPersonDetails = (personId) =>
+  axios.get(
+    `${movieBaseUrl}/person/${personId}?api_key=${api_key}&language=en-US`
+  );
+976;
 export default {
   getTrendingVideos,
   getMovieByGenreId,
   getTrendingPerson,
   searchMovie,
+  getMovieDetails,
+  getPersonDetails,
 };

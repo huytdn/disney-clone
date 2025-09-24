@@ -7,6 +7,8 @@ import Originals from "../pages/Originals";
 import Movies from "../pages/Movies";
 import SignIn from "../pages/Login";
 import SignUp from "../pages/Register";
+import ReviewFilm from "../pages/ReviewFilm";
+import ReviewActor from "../pages/ReviewPerson";
 
 function PrivateRoute({ children }) {
   const session = sessionStorage.getItem("account");
@@ -28,6 +30,8 @@ function AppRoutes() {
         <Route path="/search" element={<Search />} />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/reviewfilm/:id" element={<ReviewFilm />} />
+        <Route path="/reviewactor/:id" element={<ReviewActor />} />
         {/* Private routes */}
         <Route
           path="/watchlist"
